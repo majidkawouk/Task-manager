@@ -8,17 +8,19 @@ use NunoMaduro\Collision\Adapters\Phpunit\State;
 
 class Taskscontroller extends Controller
 {
-   public function ShowTasks(){
-    $ta = Taskmodel::all();
+   public function ShowTasks($id){
+    $ta = Taskmodel::where("user_id",$id)->get();
     return $ta;
    }
    public function AddTask(request $request){
         $description = $request->input("description");
-        $user_id = $request->input("user_id");   
+        $user_id = $request->input("user_id");  
+        $deadline =  $request->input( "deadline");  
      $ta = Taskmodel::create([
             "description"=>$description,
             "user_id"=>$user_id,
-            "state"=>'pendding'
+            "state"=>'pendding',
+            "deadline"=>$deadline
      ]);
     
    }

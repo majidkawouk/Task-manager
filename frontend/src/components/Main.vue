@@ -14,9 +14,9 @@
     <li>Review and approve task completions.</li>
   </ul>
   <div class="flex gap-4 items-center">
-  <button class="text-lg p-3 rounded-sm bg-black text-white">Veiw My Tasks</button>
+  <router-link to="/tasks" class="text-lg p-3 rounded-sm bg-black text-white">Veiw My Tasks</router-link>
   <p class="font-bold ">Or</p>
-  <button class="text-lg p-3 rounded-sm bg-black text-white">Add Tasks</button>
+  <router-link to="/leader" class="text-lg p-3 rounded-sm bg-black text-white">Add Tasks</router-link>
   </div>
   </div>
 </template>
