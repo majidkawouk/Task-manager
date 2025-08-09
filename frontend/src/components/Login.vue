@@ -1,22 +1,24 @@
 <script setup>
+import { useUser } from '@/stores/user'
 import axios from 'axios'
 import { ref } from 'vue'
 
 const name = ref('')
 const password = ref('')
 const message = ref('')
-
+const user = useUser()
 async function hendlesubmit() {
   try {
-    const respone = await axios.post(
+    const response = await axios.post(
       'http://localhost:8000/api/login',
       { name: name.value, password: password.value },
       {
         headers: { 'Content-Type': 'application/json' },
       },
     )
-    const data = respone
+    const data = response.data.user
     console.log(data)
+    user.edituser(data.name, data.id, data.email)
   } catch (err) {
     console.error(err)
   }
@@ -25,7 +27,7 @@ async function hendlesubmit() {
 
 <template>
   <div
-    class="w-full flex flex-col h-[calc(100vh-80px)] items-center justify-center gap-4 bg-gradient-to-br from-green-100 via-green-200 to-green-300"
+    class="w-full flex flex-col h-[calc(100vh-52px)] md:h-[calc(100vh-80px)] items-center justify-center gap-4 bg-gradient-to-br from-green-100 via-green-200 to-green-300"
   >
     <form
       @submit.prevent="hendlesubmit"

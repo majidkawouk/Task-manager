@@ -24,7 +24,7 @@ async function hendlesubmit() {
  </script>
 
 <template>
-  <div class="w-full flex flex-col h-[calc(100vh-80px)] items-center justify-center gap-4 bg-gradient-to-br from-green-100 via-green-200 to-green-300">
+  <div class="w-full flex flex-col h-[calc(100vh-52px)] md:h-[calc(100vh-80px)] items-center justify-center gap-4 bg-gradient-to-br from-green-100 via-green-200 to-green-300">
     <form   @submit.prevent="hendlesubmit" class="flex flex-col items-center w-[70%] sm:w-[60%] md:w-[40%] p-6 gap-4 rounded-2xl shadow-xl bg-white/30 backdrop-blur-md">
       <img src="/enter.png" alt="Login Icon" class="w-20 h-20" />
       <h1 class="text-3xl font-bold text-green-800">Register Page</h1>
