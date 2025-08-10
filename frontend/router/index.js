@@ -10,7 +10,7 @@ const routes = [
   { path: '/login', component: Login },
   { path: '/register', component: Register },
   { path: '/', component: Main },
-  { path: '/tasks/:id', component: Tasks },
+  { path: '/MyTasks', component: Tasks },
   { path: '/tasks', component: Taskmaneger },
 ]
 
