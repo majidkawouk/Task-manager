@@ -16,7 +16,7 @@ Route::post('/login', [User::class, 'login']);
 
 
 
-Route::get('/showtasks',[Taskscontroller::class,'ShowallTasks']);
+Route::middleware(['auth:sanctum', 'isAdmin'])->get('/showtasks', [TasksController::class, 'ShowallTasks']);
 Route::get('/showtasks/{id}',[Taskscontroller::class,'ShowTasks']);
 Route::post('/addtask',[Taskscontroller::class,'AddTask']);
 Route::patch('/updatetask/{id}',[Taskscontroller::class,'UpdateTask']);

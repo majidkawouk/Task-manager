@@ -17,53 +17,54 @@ class User extends Controller
      $user = ModelsUser::all();
         return $user;
     }
-    public function register(request $request){
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $password = $request->input('password');
+   public function register(Request $request)
+{
+    $name = $request->input('name');
+    $email = $request->input('email');
+    $password = $request->input('password');
 
-        ModelsUser::create([
-            'name' => $name,
-            'email' => $email,
-            'password' => $password,
-        ]);
-        return response()->json([
-            'message' => 'User registered successfully!',
-            'user' => [
-                'name' => $name,
-                'email' => $email,
-            ],
-        ]);
-    }
+    $user = ModelsUser::create([
+        'name' => $name,
+        'email' => $email,
+        'password' => Hash::make($password), 
+    ]);
+
+    return response()->json([
+        'message' => 'User registered successfully!',
+        'user' => $user,
+    ]);
+}
+
 
     public function showUserbyid($id){
      $user = ModelsUser::find($id);
         return response()->json($user);
     }
 
-    public function login(Request $request)
+   public function login(Request $request)
 {
     $name = $request->input('name');
     $password = $request->input('password');
 
     $user = ModelsUser::where('name', $name)->first();
 
-    if (!$user) {
+    if (! $user) {
         return response()->json(['message' => 'User not found'], 404);
     }
 
-    
-    if (!Hash::check($password, $user->password)) {
+    if (! Hash::check($password, $user->password)) {
         return response()->json(['message' => 'Incorrect password'], 401);
     }
-  
+
+    $token = $user->createToken('api-token')->plainTextToken;
 
     return response()->json([
         'message' => 'User logged in successfully!',
-        'user' => $user,
-        
+        'token' => $token,
+        'user' => $user
     ]);
 }
+
 
 
 

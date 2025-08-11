@@ -2,11 +2,13 @@
 import { useUser } from '@/stores/user'
 import axios from 'axios'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const name = ref('')
 const password = ref('')
 const message = ref('')
 const user = useUser()
+const route =  useRouter()
 async function hendlesubmit() {
   try {
     const response = await axios.post(
@@ -17,12 +19,15 @@ async function hendlesubmit() {
       },
     )
     const data = response.data.user
-    console.log(data)
-    user.edituser(data.name, data.id, data.email)
+    const token = response.data.token
+    user.edituser(data.name, data.id, data.email, token)
+    route.push('/tasks')
   } catch (err) {
     console.error(err)
   }
 }
+
+
 </script>
 
 <template>

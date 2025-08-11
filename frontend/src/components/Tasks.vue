@@ -51,24 +51,24 @@ async function handleDone(task) {
     <div
       v-for="task in tasks"
       :key="task.id"
-      class="w-[70%] bg-gray-800 p-4 shadow-md rounded-md mx-auto"
+      class="w-[70%] bg-gray-800 p-4 md:p-6 md:text-2xl shadow-md rounded-md mx-auto"
     >
       <h1>{{ task.description }}</h1>
       <hr class="border-gray-600 mb-2" />
       <div
-        class="text-sm flex justify-between items-center"
+        class="text-sm flex justify-between items-center  md:text-xl"
         :class="task.state === 'pending' ? 'text-red-400' : 'text-green-400'"
       >
-        <div>
+        <div class=" md:text-2xl">
           <h1>{{ task.state }}</h1>
-          <h2 class="text-green-400">
+          <h2 class="text-green-400  md:text-xl">
             Remaining Time: {{ getRemainingDays(task.deadline) }} days
           </h2>
         </div>
         <button
           v-if="task.state !== 'done'"
           @click="handleDone(task)"
-          class="bg-green-500 hover:bg-green-600 text-black font-semibold rounded px-3 py-1"
+          class="bg-green-500 hover:bg-green-600  md:text-xl text-black font-semibold rounded px-3 py-1"
         >
           Done
         </button>

@@ -14,19 +14,19 @@
     <h2 class="font-bold text-lg md:text-2xl mt-2">Empowering teams. Enabling leaders.</h2>
 
 
-    <ul class="mt-6 space-y-4 text-base md:text-lg font-medium max-w-md">
+    <ul class="mt-6 space-y-4 md:space-y-10 text-base md:text-2xl font-medium max-w-md">
       <li><span class="font-extrabold">- Your Tasks</span><br>Stay on top of your responsibilities. Here's what's assigned to you.</li>
       <li><span class="font-extrabold">- Team Overview</span><br>Monitor your team’s progress and collaborate effectively.</li>
       <li><span class="font-extrabold">- Pending Approvals (Leader Only)</span><br>Review and approve task completions.</li>
     </ul>
 
   
-    <div class="flex flex-col sm:flex-row items-center gap-3 mt-8">
-      <router-link to="/tasks" class="px-4 py-2 bg-black text-white rounded hover:bg-gray-800">
+    <div class="flex flex-col sm:flex-row items-center gap-3 mt-8 md:text-2xl">
+      <router-link to="/MyTasks" class="px-4 py-2 bg-black text-white rounded hover:bg-gray-800">
         View My Tasks
       </router-link>
       <p class="font-bold">OR</p>
-      <router-link to="/leader" class="px-4 py-2 bg-black text-white rounded hover:bg-gray-800">
+      <router-link to="/tasks" class="px-4 py-2 bg-black text-white rounded hover:bg-gray-800">
         Add Tasks
       </router-link>
     </div>
