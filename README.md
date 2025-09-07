@@ -1,3 +1,10 @@
+<h1>npm run dev for frontend</h1>
+<h1>php artisan serve for backend</h1>
+
+
+
+
+
 <img src="https://github.com/user-attachments/assets/2b8c1920-2b37-472f-9446-19af2bfd1be4" width="600" />
 <img src="https://github.com/user-attachments/assets/170f08f8-b098-4a99-b448-d3715c1f7b10" width="400" />
 <img src="https://github.com/user-attachments/assets/b92d182b-f6af-41b7-86cf-b6bd71991d30" width="400" />
